@@ -131,3 +131,64 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// se der ruim, apagar aqui
+document.addEventListener('DOMContentLoaded', function() {
+    const containers = document.querySelectorAll('.thumbnails-container');
+    
+    containers.forEach(container => {
+        const grid = container.querySelector('.thumbnails-grid');
+        const prevBtn = container.querySelector('.nav-button.prev');
+        const nextBtn = container.querySelector('.nav-button.next');
+        
+        // Função para determinar a distância do scroll baseado no tamanho da tela
+        const getScrollDistance = () => {
+            // Para mobile (menos que 768px), usa um valor menor
+            if (window.innerWidth <= 768) {
+                return 300; // Ou o tamanho do seu card mobile + gap
+            }
+            // Para desktop, mantém o valor original
+            return 720; // Tamanho do card + gap
+        };
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                grid.scrollBy({
+                    left: -getScrollDistance(),
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                grid.scrollBy({
+                    left: getScrollDistance(),
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Atualizar visibilidade dos botões
+        const updateButtonVisibility = () => {
+            if (prevBtn) {
+                prevBtn.style.display = grid.scrollLeft <= 0 ? 'none' : 'flex';
+            }
+            if (nextBtn) {
+                nextBtn.style.display = 
+                    Math.ceil(grid.scrollLeft) >= grid.scrollWidth - grid.clientWidth 
+                    ? 'none' 
+                    : 'flex';
+            }
+        };
+
+        // Verificar visibilidade inicial dos botões
+        updateButtonVisibility();
+        
+        // Atualizar botões quando rolar
+        grid.addEventListener('scroll', updateButtonVisibility);
+        
+        // Atualizar quando a tela for redimensionada
+        window.addEventListener('resize', updateButtonVisibility);
+    });
+});
