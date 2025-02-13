@@ -11,35 +11,70 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="dark">
-    <!-- Header -->
-    <header class="hero">
-        <h1>Meu Portfólio - YouTube</h1>
-        <p>Criador de conteúdo especializado em design</p>
-    </header>
+<!-- NOVO? INÍCIO -->
+    <nav class="main-nav">
+        
+        <div class="nav-container">
+          <a href="#home" class="nav-logo">HOME</a>
+          <ul class="nav-links">
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#partnership">Parceria</a></li>
+            <li><a href="#social">Redes</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+<!-- NOVO? FIM -->
 
-    <!-- SOBRE MIM -->   
-    <section class="about">
+
+    <!-- Header -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+          <h1>Haijetski</h1>
+          <h2>Design de Thumbnails para YouTube</h2>
+          <p>Aumente sua audiência com thumbnails que convertem!</p>
+        </div>
+      </header>
+
+    <!-- SOBRE MIM -->
+
+    <section id ="about" class="about">
         <div class="about-container">
             <div class="about-content">
                 <h2>Sobre Mim</h2>
                 <p>Sou um profissional apaixonado por design, entusiasta de arte, gaming e fashion. 💫👜</p>
                 <p>Gosto de criar soluções visuais que não só chamam atenção, mas também fazem sentido. Sempre busco equilibrar estética e funcionalidade para entregar projetos que realmente impactam.</p>
                 <br>
-                <p>"Por que essa "máscara do Batman?"" <br>
-
-                    Nenhum motivo específico. Como já mencionei, gosto de moda, achei estilosa e resolvi comprar. 😂 <br> Decidi que isso seria a minha identidade visual na internet. :)</p>
-                    <br>
+                
                 <p>Leaving something lit in this world before i go.</p>
             </div>
             <div class="about-image">
                 <img src="Thumbs\euu.png" alt="Minha Foto">
             </div>
         </div>
+        <button id="openModal">Saiba Mais</button>
     </section>
 
+    <!-- Modal -->
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Mais sobre mim</h2>
+        <p>Desde pequeno, sempre fui fascinado por arte e criatividade...</p><br>
+        <p>"Por que essa "máscara do Batman?"" 
+        <br>
+        Nenhum motivo específico. Como já mencionei, gosto de moda, achei estilosa e resolvi comprar. 😂 <br> Decidi que isso seria a minha identidade visual na internet. :)</p>
+        <br>
+    </div>
+</div>
+
 <!-- Adicione esta seção logo após o header e antes da seção de thumbnails -->
-<section class="thumbnails-section">
-    <h2 class="section-title">Projetos</h2>
+<section id="projects" class="thumbnails-section">
+    <h2  class="section-title">Projetos</h2>
     <div class="banner-container">
         <img src="Thumbs\Youtube Thumbnails.png" alt="Youtube Thumbnails by haijetski" class="banner-image">
     </div>
@@ -233,8 +268,39 @@
 </div>
 
 
+<!-- por que fazer parceria comigo - início -->
+<section id="partnership" class="partnership">
+    <h2>Por que fechar parceria comigo?</h2>
+    <div class="partnership-content">
+      <div class="value-proposition">
+        <h3>Thumbnails que chamam atenção e aumentam sua audiência</h3>
+        <p>No YouTube, a taxa de cliques (CTR) define o sucesso de um vídeo. Se sua thumbnail não prende a atenção, seu vídeo passa despercebido – e menos views significam menos crescimento e monetização.</p>
+        
+        <div class="ctr-highlight">
+          <span class="highlight-text">A CTR média no YouTube varia entre 2% e 10%</span>
+          <p>Mas os criadores que realmente se destacam vão além. Com um design estratégico e persuasivo, suas thumbnails podem atrair mais cliques, impulsionar visualizações e aumentar seus resultados.</p>
+        </div>
+
+        <div class="services-list">
+          <h4>💡 O que eu faço:</h4>
+          <ul>
+            <li>✔️ Criação de thumbnails otimizadas para alta CTR</li>
+            <li>✔️ Estratégias visuais que despertam curiosidade e engajamento</li>
+            <li>✔️ Design testado e validado para gerar mais cliques e conversões</li>
+          </ul>
+        </div>
+
+        <div class="cta-container">
+          <p class="cta-text">Não perca oportunidades por uma thumbnail fraca.</p>
+          <a href="#contactForm" class="cta-button">Vamos transformar seus vídeos em sucesso? 🚀</a>
+        </div>
+      </div>
+    </div>
+  </section> 
+<!-- por que fazer parceria comigo - fim -->
+
     <!-- Social Media -->
-    <section class="social">
+    <section id= "social" class="social">
         <h2>Minhas Redes</h2>
         <div class="social-links">
             <!-- COMENTÁRIO: Atualize os hrefs com seus links -->
@@ -258,7 +324,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="contact">
+    <section id="contact" class="contact">
         <h2>Contato</h2>
         <form id="contactForm" action="/send-message" method="POST">
             <div class="form-group">
@@ -277,12 +343,14 @@
         </form>
     </section>
 
+    
     <!-- Footer -->
     <footer>
         <p>© <span id="year"></span> Haijetski. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
+    
 </body>
 </html>
 
