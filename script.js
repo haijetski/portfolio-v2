@@ -102,7 +102,7 @@ function setupSmoothScroll() {
 // Inicialização dos scripts
 // Inicializar o modal "Sobre"
 function initModal() {
-    const modal = document.getElementById("aboutModal");
+    const modal = document.querySelector(".modal");
     const btn = document.getElementById("openModal");
     const closeBtn = document.querySelector(".close");
 
