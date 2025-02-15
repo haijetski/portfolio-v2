@@ -235,4 +235,31 @@ window.addEventListener("scroll", () => {
     }
   }
 
-  
+  // Script para impedir que mude de página ao enviar algum email para mim
+ 
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita o redirecionamento padrão
+    
+    var form = this;
+    var formData = new FormData(form);
+    
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (!response.ok) { // Se houver erro, mostrar alerta
+        throw new Error("Erro ao enviar mensagem.");
+      }
+      return response.json();
+    })
+    .then(data => {
+      document.getElementById("successMessage").style.display = "block";
+      form.reset(); // Limpa os campos do formulário
+    })
+    .catch(error => {
+      alert("Erro ao enviar mensagem. Tente novamente.");
+    });
+  });
+

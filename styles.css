@@ -741,7 +741,7 @@
     padding: 30px;
     border-radius: 12px;
     max-width: 80vw; /* Aumentei a largura */
-    text-align: center;
+    text-align: left;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -788,4 +788,20 @@
 
 #openModal:hover {
     background-color: var(--primary-dark, #cc5500); /* Versão escura da cor principal */
+}
+
+/* ajuste centralizado para email enviado com sucesso */
+#successMessage {
+  display: none;
+  color: green;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 8px;
+  background-color: #e6ffe6;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
